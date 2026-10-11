@@ -1,0 +1,40 @@
+@extends("layouts.auth")
+
+@section("titulo")
+    Crear Cuenta
+@endsection
+
+@section("auth-contenido")
+    <form class="mt-14 space-y-5" novalidate>
+        <div class="space-y-2">
+            <label class="font-bold text-2xl block" for="name">Nombre</label>
+
+            <input id="name" type="text" placeholder="Tu nombre" class="w-full border border-gray-300 p-3 rounded-lg"
+                name="nombre" />
+        </div>
+
+        <div class="space-y-2">
+            <label class="font-bold text-2xl block" for="correo">Correo</label>
+
+            <input id="correo" type="email" placeholder="Tu correo" class="w-full border border-gray-300 p-3 rounded-lg"
+                name="correo" />
+        </div>
+
+        <div class="space-y-2">
+            <label class="font-bold text-2xl block" for="password">Contraseña</label>
+
+            <input id="password" type="password" placeholder="Tu contraseña"
+                class="w-full border border-gray-300 p-3 rounded-lg" name="password" />
+        </div>
+
+        <div class="space-y-2">
+            <label class="font-bold text-2xl block" for="confirmacion_password">Repetir contraseña</label>
+
+            <input id="confirmacion_password" type="password" placeholder="Repite tu contraseña"
+                class="w-full border border-gray-300 p-3 rounded-lg" name="confirmacion_password" />
+        </div>
+
+        <input type="submit" value='Registrarme'
+            class="bg-purple-950 hover:bg-purple-800 w-full p-3 rounded-lg text-white font-bold  text-xl cursor-pointer" />
+    </form>
+@endsection
