@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SignupRequest;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -12,14 +13,9 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function store(Request $request)
+    public function store(SignupRequest $request)
     {
-        $data = $request->validate([
-            "nombre" => ["required", "string"],
-            "correo" => ["required", "email"],
-        ], [
-            "nombre.required" => "El nombre es obligatorio"
-        ]);
+        $data = $request->validated();
         dd($data);
     }
 }

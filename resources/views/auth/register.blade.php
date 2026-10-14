@@ -5,7 +5,7 @@
 @endsection
 
 @section("auth-contenido")
-    <form method="POST" action={{ route('register.store') }} class="mt-14 space-y-5" novalidate>
+    <form method="POST" action="{{ route('register.store') }}" class="mt-14 space-y-5" novalidate>
         <div class="space-y-2">
             <label class="font-bold text-2xl block" for="name">Nombre</label>
 
@@ -24,6 +24,10 @@
                 name="correo" />
         </div>
 
+        @error("correo")
+            <p class="text-red-600">{{ $message }}</p>
+        @enderror
+
         <div class="space-y-2">
             <label class="font-bold text-2xl block" for="password">Contraseña</label>
 
@@ -31,11 +35,16 @@
                 class="w-full border border-gray-300 p-3 rounded-lg" name="password" />
         </div>
 
-        <div class="space-y-2">
-            <label class="font-bold text-2xl block" for="confirmacion_password">Repetir contraseña</label>
 
-            <input id="confirmacion_password" type="password" placeholder="Repite tu contraseña"
-                class="w-full border border-gray-300 p-3 rounded-lg" name="confirmacion_password" />
+        @error("password")
+            <p class="text-red-600">{{ $message }}</p>
+        @enderror
+
+        <div class="space-y-2">
+            <label class="font-bold text-2xl block" for="password_confirmation">Repetir contraseña</label>
+
+            <input id="password_confirmation" type="password" placeholder="Repite tu contraseña"
+                class="w-full border border-gray-300 p-3 rounded-lg" name="password_confirmation" />
         </div>
 
         <input type="submit" value='Registrarme'
