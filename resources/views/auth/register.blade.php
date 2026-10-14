@@ -5,13 +5,17 @@
 @endsection
 
 @section("auth-contenido")
-    <form class="mt-14 space-y-5" novalidate>
+    <form method="POST" action={{ route('register.store') }} class="mt-14 space-y-5" novalidate>
         <div class="space-y-2">
             <label class="font-bold text-2xl block" for="name">Nombre</label>
 
             <input id="name" type="text" placeholder="Tu nombre" class="w-full border border-gray-300 p-3 rounded-lg"
                 name="nombre" />
         </div>
+
+        @error("nombre")
+            <p class="text-red-600">{{ $message }}</p>
+        @enderror
 
         <div class="space-y-2">
             <label class="font-bold text-2xl block" for="correo">Correo</label>
