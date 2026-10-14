@@ -19,9 +19,10 @@ class SignupRequest extends FormRequest
     public function messages(): array
     {
         return [
-            "nombre.required" => "El nombre es obligatorio",
-            "correo.required" => "El correo es obligatorio",
-            "correo.email" => "El correo no es válido",
+            "name.required" => "El nombre es obligatorio",
+            "email.required" => "El correo es obligatorio",
+            "email.email" => "El correo no es válido",
+            "email.unique" => "El correo ya está registrado",
             "password.required" => "La contraseña es obligatoria",
             "password.confirmed" => "Las contraseñas no coinciden",
             "password.min" => "La contraseña debe tener al menos :min caracteres",
@@ -40,8 +41,8 @@ class SignupRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "nombre" => ["required", "string"],
-            "correo" => ["required", "email"],
+            "name" => ["required", "string"],
+            "email" => ["required", "email", "unique:users,email"],
             "password" => ["required", "confirmed", Password::min(8)->mixedCase()->symbols()->numbers()->uncompromised()],
         ];
     }

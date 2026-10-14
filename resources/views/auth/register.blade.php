@@ -10,21 +10,21 @@
             <label class="font-bold text-2xl block" for="name">Nombre</label>
 
             <input id="name" type="text" placeholder="Tu nombre" class="w-full border border-gray-300 p-3 rounded-lg"
-                name="nombre" />
+                name="name" value="{{  old('name') }}" />
         </div>
 
-        @error("nombre")
+        @error("name")
             <p class="text-red-600">{{ $message }}</p>
         @enderror
 
         <div class="space-y-2">
-            <label class="font-bold text-2xl block" for="correo">Correo</label>
+            <label class="font-bold text-2xl block" for="email">Correo</label>
 
-            <input id="correo" type="email" placeholder="Tu correo" class="w-full border border-gray-300 p-3 rounded-lg"
-                name="correo" />
+            <input id="email" type="email" placeholder="Tu correo" class="w-full border border-gray-300 p-3 rounded-lg"
+                name="email" value="{{  old('email') }}" />
         </div>
 
-        @error("correo")
+        @error("email")
             <p class="text-red-600">{{ $message }}</p>
         @enderror
 
