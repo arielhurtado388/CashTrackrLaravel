@@ -29,4 +29,9 @@ Route::post("/email/verification-notification", function (Request $request) {
     return back()->with("success", "Se ha reenviado el correo de confirmación");
 })->middleware("auth", 'throttle:1,1')->name("verification.send");
 
-Route::get("/dashboard", [BudgetController::class, 'index'])->middleware('auth', 'verified')->name("dashboard");
+// Presupuestos
+Route::prefix('dashboard')->group(function () {
+    Route::get("/", [BudgetController::class, 'index'])->name("dashboard");
+    Route::get("/budgets/create", [BudgetController::class, 'create'])->name("budgets.create");
+    Route::post("/budgets", [BudgetController::class, 'store'])->name("budgets.store");
+});
